@@ -4,9 +4,27 @@ pragma solidity 0.8.8;
 //import AggregatorV3Interface contract from chainlink github:https://github.dev/smartcontractkit/chainlink/tree/develop/contracts
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
+//import libraries
+import "./PriceConverter.sol";
 // contract address: 0xe07ac59b270c849bf10291943bee42f4fae72e62
+// 0xa4d4b8c1175efb05cb55ab02bfb4ee9e1729a95b
 contract FundMe {
+    // using PriceConverter for uint256; // catch it to uint256. But why?
+
+    address public owner;
     uint256 public minimumUsd = 50 * 1e18; //18 zero (do this cause the value of USD will have 18 degits at the end -> make it convenient to work with Wei)
+    address[] public funders;
+    mapping(address => uint256) public addressToAmountFunded;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner {
+        require(msg.sender == owner, "sender is not owner");
+        _;
+    }
+    
     function fund() public payable {
         // if to doesnt go through the require below, 
         //it will be reverted all the way prior to this and 
@@ -17,6 +35,14 @@ contract FundMe {
 
     function fundByUsd() public payable {
         require(getConversionRate(msg.value) > minimumUsd, "didnt send enough usd");
+        funders.push(msg.sender);
+        addressToAmountFunded[msg.sender] += msg.value;
+    }
+
+    function fundUsingPriceConverterLib() public payable {
+        require(PriceConverter.getConversionRate(msg.value) > minimumUsd, "didnt send enough");
+        funders.push(msg.sender);
+        addressToAmountFunded[msg.sender] += msg.value;
     }
 
     function convertOneEthToUsd() public view returns(uint256) {
@@ -65,6 +91,40 @@ contract FundMe {
     function getVersionOfAggregatorContract() public view returns(uint256) {
         AggregatorV3Interface priceFeed = AggregatorV3Interface(0x8A753747A1Fa494EC906cE90E9f37563A8AF630e);
         return priceFeed.version();
+    }
+
+    function testPriceConverterLib() public pure returns(string memory) {
+        return PriceConverter.returnString("first-","second-", "third");
+    }
+
+    function withDraw() public onlyOwner {
+        for(uint256 i = 0; i < funders.length; i++) {
+            address funder = funders[i];
+            addressToAmountFunded[funder] = 0;
+        }
+
+        funders = new address[](0);
+
+        // get the balance of the contract
+        uint256 balance = address(this).balance;
+
+        // 3 ways to send money: Transfer, Send, Call
+
+        // Transfer
+        // catch address type to payable address and transfer to sender
+        // payable(msg.sender).transfer(balance);
+
+        // Send
+        // same thing but send doesnt throw an error, so we need to revert it if the sending fails
+        // bool sendSuccess = payable(msg.sender).send(balance);
+        // require(sendSuccess, "send failed");
+
+        // Call (recommended for the most part)
+        (
+            bool callSuccess,
+            // bytes memory dataReturned
+        ) = payable(msg.sender).call{value: balance}("");
+        require(callSuccess, "call failed");
     }
 
 }
