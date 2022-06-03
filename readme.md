@@ -4,17 +4,17 @@ Welcome to the repository where I store Solidity, Smart Contract and Blockchain 
 
 # References
 
-## [Patrick Collins](https://www.youtube.com/channel/UCn-3f8tw_E1jZvhuHatROwA)
+### [Patrick Collins](https://www.youtube.com/channel/UCn-3f8tw_E1jZvhuHatROwA)
 
-## [Testnet Faucets](https://faucets.chain.link)
+### [Testnet Faucets](https://faucets.chain.link)
 
-## [Chainlink](https://chain.link/)
+### [Chainlink](https://chain.link/)
 
-## [Ethereum Unit Converter](https://eth-converter.com/)
+### [Ethereum Unit Converter](https://eth-converter.com/)
 
-## [Remix](https://remix.ethereum.org/)
+### [Remix](https://remix.ethereum.org/)
 
-## [Solidity Documentation](https://docs.soliditylang.org/en/v0.8.6/index.html)
+### [Solidity Documentation](https://docs.soliditylang.org/en/v0.8.6/index.html)
 
 
 # Fund Me Contract
