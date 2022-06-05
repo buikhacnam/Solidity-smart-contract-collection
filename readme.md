@@ -29,3 +29,5 @@ Welcome to the repository where I store Solidity, Smart Contract and Blockchain 
 - Ethereum to Wei and so on
 - Libraries and Solidity
 - Sending ETH from a Contract
+- Special functions receive() and fallback()
+- Custom error introduction
