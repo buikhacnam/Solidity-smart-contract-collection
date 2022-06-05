@@ -8,42 +8,64 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./PriceConverter.sol";
 // contract address: 0xe07ac59b270c849bf10291943bee42f4fae72e62
 // 0xa4d4b8c1175efb05cb55ab02bfb4ee9e1729a95b
-// 0x072194807badD49C061B8195aEDD93576aFc0ce8
+//0x072194807badD49C061B8195aEDD93576aFc0ce8
+// 0x97fEa0AC2b7a702a6F8846056064446E84fA98EB
+
+//Custom error
+error NotOwner();
+
 contract FundMe {
     // using PriceConverter for uint256; // catch it to uint256. But why?
 
-    address public owner;
-    uint256 public minimumUsd = 50 * 1e18; //18 zero (do this cause the value of USD will have 18 degits at the end -> make it convenient to work with Wei)
+    address public immutable i_owner;
+    uint256 public constant MINIMUM_USD = 50 * 1e18; //18 zero (do this cause the value of USD will have 18 degits at the end -> make it convenient to work with Wei)
     address[] public funders;
     mapping(address => uint256) public addressToAmountFunded;
 
     constructor() {
-        owner = msg.sender;
+        i_owner = msg.sender;
     }
 
     modifier onlyOwner {
-        require(msg.sender == owner, "sender is not owner");
+        // require(msg.sender == i_owner, "sender is not owner");
+        //using custome error instead
+        if(msg.sender != i_owner) {
+            revert NotOwner(); // it will save us gas since we dont have to save "sender is not owener" in the contract.
+        }
         _;
     }
     
-    function fund() public payable {
-        // if to doesnt go through the require below, 
-        //it will be reverted all the way prior to this and 
-        //send back gas to sender up to this point
-        require(msg.value > 1e18, "didnt send enough eth");
-        // 1e18 == (1 * 10) ** 18 == 1000000000000000000 wei = 1eth
-    }
+    // function fund() public payable {
+    //     // if to doesnt go through the require below, 
+    //     //it will be reverted all the way prior to this and 
+    //     //send back gas to sender up to this point
+    //     require(msg.value > 1e18, "didnt send enough eth");
+    //     // 1e18 == (1 * 10) ** 18 == 1000000000000000000 wei = 1eth
+    // }
+
 
     function fundByUsd() public payable {
-        require(getConversionRate(msg.value) > minimumUsd, "didnt send enough usd");
+        require(getConversionRate(msg.value) > MINIMUM_USD, "didnt send enough usd");
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] += msg.value;
     }
 
-    function fundUsingPriceConverterLib() public payable {
-        require(PriceConverter.getConversionRate(msg.value) > minimumUsd, "didnt send enough");
-        funders.push(msg.sender);
-        addressToAmountFunded[msg.sender] += msg.value;
+    // function fundUsingPriceConverterLib() public payable {
+    //     require(PriceConverter.getConversionRate(msg.value) > MINIMUM_USD, "didnt send enough");
+    //     funders.push(msg.sender);
+    //     addressToAmountFunded[msg.sender] += msg.value;
+    // }
+
+    // What happen if someone sends the contract ETH without calling the fund function?
+    // the answer is to using special functions: receive and fallback
+    // we play around with them in the "./FallbackExample.sol"
+
+    receive() external payable {
+        fundByUsd();
+    }
+
+    fallback() external payable {
+        fundByUsd();
     }
 
     function convertOneEthToUsd() public view returns(uint256) {
@@ -76,10 +98,10 @@ contract FundMe {
 
 
         // but we calculate this way instead cause weiAmount / 1e18 = 0 for some reasons (check convertWeiToEth function for reference)
-        // there for we have to put 18 degits of 0 at the end of minimumUsd value (same numbers of 0 of Wei from Eth)
+        // there for we have to put 18 degits of 0 at the end of MINIMUM_USD value (same numbers of 0 of Wei from Eth)
         return (valueOfUsdPerOneEth * weiAmount) / 1e18;  // -> (1830 457442820000000000 * 2000000000000000000) / 1e18 = 3660 914885640000000000
 
-        //3660 914885640000000000 is way qualify the minimumUsd which only 50 000000000000000000 usd
+        //3660 914885640000000000 is way qualify the MINIMUM_USD which only 50 000000000000000000 usd
 
         //reference: 0.025 ETH will fail  but 0.03 ETH will success
     }
