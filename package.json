@@ -2,5 +2,11 @@
   "name": "solidity-smart-contract-collection",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "solc": "^0.8.14-fixed"
+  },
+  "scripts" : {
+    "compile": "yarn solcjs --bin --abi --include-path node_modules/ --base-path . -o compile simpleStorage/SimpleStorage.sol"
+  }
 }
