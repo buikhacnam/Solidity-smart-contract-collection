@@ -55,8 +55,9 @@ Run: yarn compile (check it in package.json)
 -o compile: output abi and bin to "compile" folder <br>
 simpleStorage/SimpleStorage.sol: where to find the contract.sol file <br>
 
-### Deploy contract 
-💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/blob/master/deploy.js
+### Deploy contract
+
+💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/blob/master/deploy.ts
 
 ```
 const factory = new ethers.ContractFactory(abi, binary, wallet)
@@ -68,18 +69,19 @@ const factory = new ethers.ContractFactory(abi, binary, wallet)
 
 You can get private key from https://trufflesuite.com/ganache/ and deploy to Ganache local network or use https://www.alchemy.com/ to deploy to real Rinkeby network
 
-```
+
 
 First, create encryptKey.json file:
 
 ```
+
 const wallet = new ethers.Wallet(PRIVATE_KEY)
-	const encryptedJsonKey = await wallet.encrypt(
-		PRIVATE_KEY_PASSWORD,
-		PRIVATE_KEY
-	)
-    console.log(encryptedJsonKey)
-    fs.writeFileSync('./encryptKey.json', encryptedJsonKey)
+const encryptedJsonKey = await wallet.encrypt(
+PRIVATE_KEY_PASSWORD,
+PRIVATE_KEY
+)
+console.log(encryptedJsonKey)
+fs.writeFileSync('./encryptKey.json', encryptedJsonKey)
 
 ```
 
@@ -87,21 +89,26 @@ Then, we can decrypt the private key:
 
 ```
 
-	const encryptedJson = fs.readFileSync('./encryptKey.json', 'utf8')
-	let wallet = new ethers.Wallet.fromEncryptedJsonSync(
-		encryptedJson,
-		process.env.PRIVATE_KEY_PASSWORD
-	)
+    const encryptedJson = fs.readFileSync('./encryptKey.json', 'utf8')
+    let wallet = new ethers.Wallet.fromEncryptedJsonSync(
+    	encryptedJson,
+    	process.env.PRIVATE_KEY_PASSWORD
+    )
 
 ```
-
 Run the deploy.js file to deploy the contract on Ganache:
 
 ```
+
 PRIVATE_KEY_PASSWORD=yourpassword node deploy.js
+
 ```
 
 To clear terminal history:
+
 ```
+
 history -c
+
 ```
+
