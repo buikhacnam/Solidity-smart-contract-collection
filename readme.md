@@ -98,5 +98,5 @@ PRIVATE_KEY_PASSWORD=yourpassword node deploy.js
 
 To clear terminal history:
 ```
-history
+history -c
 ```
