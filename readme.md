@@ -55,7 +55,7 @@ Run: yarn compile (check it in package.json)
 -o compile: output abi and bin to "compile" folder <br>
 simpleStorage/SimpleStorage.sol: where to find the contract.sol file <br>
 
-### Deploy contract to Ganache
+### Deploy contract 
 💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/blob/master/deploy.js
 
 ```
@@ -65,6 +65,11 @@ const factory = new ethers.ContractFactory(abi, binary, wallet)
 #### abi and binary are imported from compile folder
 
 #### wallet private key is decrypted from a json file encryptKey.json
+
+You can get private key from https://trufflesuite.com/ganache/ and deploy to Ganache local network or use https://www.alchemy.com/ to deploy to real Rinkeby network
+
+```
+
 First, create encryptKey.json file:
 
 ```

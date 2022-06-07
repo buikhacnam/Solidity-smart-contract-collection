@@ -1,6 +1,6 @@
-const ethers = require('ethers')
-const fs = require('fs-extra')
-require('dotenv').config()
+import ethers  from 'ethers'
+import fs from 'fs-extra'
+import 'dotenv/config' 
 
 const main = async () => {
 	const wallet = new ethers.Wallet(process.env.PRIVATE_KEY)
