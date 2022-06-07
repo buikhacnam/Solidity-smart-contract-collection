@@ -4,9 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.1",
+    "ethers": "^5.6.8",
+    "fs-extra": "^10.1.0",
     "solc": "^0.8.14-fixed"
   },
-  "scripts" : {
+  "scripts": {
     "compile": "yarn solcjs --bin --abi --include-path node_modules/ --base-path . -o compile simpleStorage/SimpleStorage.sol"
   }
 }
