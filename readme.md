@@ -54,3 +54,49 @@ Run: yarn compile (check it in package.json)
 --base-path .: period means it will be in the base folder <br>
 -o compile: output abi and bin to "compile" folder <br>
 simpleStorage/SimpleStorage.sol: where to find the contract.sol file <br>
+
+### Deploy contract to Ganache
+💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/blob/master/deploy.js
+
+```
+const factory = new ethers.ContractFactory(abi, binary, wallet)
+```
+
+#### abi and binary are imported from compile folder
+
+#### wallet private key is decrypted from a json file encryptKey.json
+First, create encryptKey.json file:
+
+```
+const wallet = new ethers.Wallet(PRIVATE_KEY)
+	const encryptedJsonKey = await wallet.encrypt(
+		PRIVATE_KEY_PASSWORD,
+		PRIVATE_KEY
+	)
+    console.log(encryptedJsonKey)
+    fs.writeFileSync('./encryptKey.json', encryptedJsonKey)
+
+```
+
+Then, we can decrypt the private key:
+
+```
+
+	const encryptedJson = fs.readFileSync('./encryptKey.json', 'utf8')
+	let wallet = new ethers.Wallet.fromEncryptedJsonSync(
+		encryptedJson,
+		process.env.PRIVATE_KEY_PASSWORD
+	)
+
+```
+
+Run the deploy.js file to deploy the contract on Ganache:
+
+```
+PRIVATE_KEY_PASSWORD=yourpassword node deploy.js
+```
+
+To clear terminal history:
+```
+history
+```
