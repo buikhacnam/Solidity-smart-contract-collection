@@ -8,11 +8,11 @@ const main = async () => {
 
 	// RPC server
 	const provider = new ethers.providers.JsonRpcProvider(
-		process.env.ALCHEMY_RPC_URL!
+		process.env.ALCHEMY_RINKEBY_RPC_URL!
 	)
 
 	const wallet = new ethers.Wallet(
-		process.env.METAMASK_PRIVATE_KEY!,
+		process.env.METAMASK_RINKEBY_PRIVATE_KEY!,
 		provider
 	)
 

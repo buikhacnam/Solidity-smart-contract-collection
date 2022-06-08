@@ -69,8 +69,6 @@ const factory = new ethers.ContractFactory(abi, binary, wallet)
 
 You can get private key from https://trufflesuite.com/ganache/ and deploy to Ganache local network or use https://www.alchemy.com/ to deploy to real Rinkeby network
 
-
-
 First, create encryptKey.json file:
 
 ```
@@ -96,6 +94,7 @@ Then, we can decrypt the private key:
     )
 
 ```
+
 Run the deploy.js file to deploy the contract on Ganache:
 
 ```
@@ -112,9 +111,11 @@ history -c
 
 ```
 
-## Hardhat Storage Contract
+# Hardhat Storage Contract
 
-### Basic Sample Hardhat Project
+## Basic Sample Hardhat Project
+
+https://hardhat.org/
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
@@ -131,3 +132,100 @@ node scripts/sample-script.js
 npx hardhat help
 
 ```
+
+## Deploy contract ot Hardhat network
+
+By default, Hardhat will automatically find the SimpleStorage.sol in the "contract" folder and then connect to the Hardhat network with default private key and rpc url
+
+Here's the way to connect (scripts/deploy.ts):
+
+```
+import { ethers } from 'hardhat'
+
+const SimpleStorageFactory = await ethers.getContractFactory(
+		'SimpleStorage'
+	)
+    console.log("deploying contract...")
+    const contract = await SimpleStorageFactory.deploy()
+    await contract.deployed()
+
+    console.log('deployed contract at:', contract.address)
+```
+
+Then you can deploy it by running:
+
+```
+yarn hardhat run scripts/deploy.ts
+```
+
+Or you can tell specific which network you want to deploy: (ex: rinkeby)
+
+```
+yarn hardhat run scripts/deploy.ts --network rinkeby
+```
+
+But first you need to provide the information of your private key and rpc url of that network in "hardhat.config.js" file:
+
+```
+{
+	defaultNetwork: 'hardhat',
+	networks: {
+		rinkeby: {
+			url: RINKEBY_RPC_URL,
+			accounts: [RINKEBY_PRIVATE_KEY],
+			chainId: 4, //rinkeby chainId
+		},
+	},
+	solidity: '0.8.8',
+}
+```
+
+## Verify contract on Etherscan
+
+@nomiclabs/hardhat-etherscan plugin reference: https://hardhat.org/plugins/nomiclabs-hardhat-etherscan
+
+First, get the API key from https://etherscan.io/myapikey
+
+Then, add it to "hardhat.config.js" file:
+
+```
+import '@nomiclabs/hardhat-etherscan'
+{
+	defaultNetwork: 'hardhat',
+	networks: {
+		rinkeby: {
+			url: RINKEBY_RPC_URL,
+			accounts: [RINKEBY_PRIVATE_KEY],
+			chainId: 4, //rinkeby chainId
+		},
+	},
+	solidity: '0.8.8',
+	etherscan: {
+		apiKey: YOUR_API_KEY,
+	},
+}
+```
+
+Then, you can verify the contract on Etherscan by following :
+
+```
+import { run, network } from 'hardhat'
+
+if(network.name === 'rinkeby' && process.env.ETHERSCAN_API_KEY) {
+	try {
+		await run('verify:verify', {
+			address: CONTRACT_ADDRESS,
+			constructorArguments: ARGS,
+		})
+	
+	} catch (err:any) {
+		if(err.message.toLowerCase().includes('already verified')) {
+			console.log('already verified')
+		} else {
+			console.log(err)
+		}
+	}
+}
+
+```
+Example Result: https://rinkeby.etherscan.io/address/0xB4C5EB615693634D826B00c23749Cea5F89b9739#code
