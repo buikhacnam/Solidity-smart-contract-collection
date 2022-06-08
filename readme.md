@@ -133,7 +133,7 @@ npx hardhat help
 
 ```
 
-## Deploy contract ot Hardhat network
+## Deploy contract to Hardhat network
 
 By default, Hardhat will automatically find the SimpleStorage.sol in the "contract" folder and then connect to the Hardhat network with default private key and rpc url
 
@@ -229,3 +229,74 @@ if(network.name === 'rinkeby' && process.env.ETHERSCAN_API_KEY) {
 
 ```
 Example Result: https://rinkeby.etherscan.io/address/0xB4C5EB615693634D826B00c23749Cea5F89b9739#code
+
+## Hardhat Tasks
+
+You can see all the tasks by running:
+
+```
+yarn hardhat
+```
+
+Similar to Scripts, Tasks basically can be used to achieve the same goal.
+
+For example, we want to create a task the can see the block number of the network.
+
+First, create the folder tasks.
+
+Then, create the file tasks/block-number.ts:
+
+```
+// Get the block number of the current chain
+
+import {task} from 'hardhat/config'
+
+task('block-number', 'Get the block number of the current chain')
+    .setAction(async (taskArgs: any[], hre:any) => {
+        // hre.ethers can be a lot like { ether } from 'hardhat'
+        const { ethers } = hre
+        const blockNumber = await ethers.provider.getBlockNumber()
+        console.log('current block number:', blockNumber.toString())
+    })
+
+export default {}
+```
+
+
+Then, you can run the task by following:
+
+```
+yarn hardhat block-number --network rinkeby
+```
+
+## Hardhat Localhost Node
+
+Run the following command to start a local node:
+
+```
+yarn hardhat node
+```
+
+Using local node is useful for testing because it doesn't require a network and it's faster.
+
+Now we add localhost network to "hardhat.config.js" file:
+
+```
+{
+	...,
+	networks: {
+		...,
+		localhost: {
+			url: 'http://127.0.0.1:8545',
+			chainId: 31337,
+			// accounts: hardhat localhost node will pick up the first account
+		}
+	}
+}
+```
+
+Now we can open a new terminal and run the following command:
+
+```
+yarn hardhat run scripts/deploy.ts --network rinkeby
+```

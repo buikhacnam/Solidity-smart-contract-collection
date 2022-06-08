@@ -2,6 +2,7 @@ import { task } from 'hardhat/config'
 import '@nomiclabs/hardhat-waffle'
 import 'dotenv/config'
 import '@nomiclabs/hardhat-etherscan'
+import './tasks/block-number'
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task('accounts', 'Prints the list of accounts', async (args, hre) => {
@@ -32,6 +33,11 @@ export default {
 			accounts: [RINKEBY_PRIVATE_KEY],
 			chainId: 4, //rinkeby chainId
 		},
+		localhost: {
+			url: 'http://127.0.0.1:8545',
+			chainId: 31337,
+			// accounts: hardhat localhost node will pick up the first account
+		}
 	},
 	solidity: '0.8.8',
 	etherscan: {

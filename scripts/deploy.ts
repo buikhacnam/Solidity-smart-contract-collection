@@ -22,6 +22,19 @@ async function main() {
 	} else {
 		console.log('will not verify')
 	}
+
+	// call retrieve() function
+	const currentValue = await contract.retrieve()
+	console.log('current value:', currentValue.toString())
+
+	// call store() function
+	const newValue = await contract.store(42)
+	await newValue.wait(1)
+
+	// call retrieve() function again
+	const currentValue2 = await contract.retrieve()
+	console.log('updated value:', currentValue2.toString())
+
 }
 
 async function verify(constractAddress: string, args: any[]) {
