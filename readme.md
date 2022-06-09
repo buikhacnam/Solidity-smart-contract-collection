@@ -217,7 +217,7 @@ if(network.name === 'rinkeby' && process.env.ETHERSCAN_API_KEY) {
 			address: CONTRACT_ADDRESS,
 			constructorArguments: ARGS,
 		})
-	
+
 	} catch (err:any) {
 		if(err.message.toLowerCase().includes('already verified')) {
 			console.log('already verified')
@@ -228,6 +228,7 @@ if(network.name === 'rinkeby' && process.env.ETHERSCAN_API_KEY) {
 }
 
 ```
+
 Example Result: https://rinkeby.etherscan.io/address/0xB4C5EB615693634D826B00c23749Cea5F89b9739#code
 
 ## Hardhat Tasks
@@ -261,7 +262,6 @@ task('block-number', 'Get the block number of the current chain')
 
 export default {}
 ```
-
 
 Then, you can run the task by following:
 
@@ -300,3 +300,90 @@ Now we can open a new terminal and run the following command:
 ```
 yarn hardhat run scripts/deploy.ts --network rinkeby
 ```
+
+## Testing using Chai
+
+Testing in a nutshell:
+
+```
+class Car {
+	park() {
+		return 'stopped'
+	}
+	drive() {
+		return 'vroom'
+	}
+}
+let car
+// before run each it block, run this function
+beforeEach(() => {
+	car = new Car()
+})
+// describe the 'Car' test
+describe('Car Test', () => {
+	it('can park', () => {
+		assert.equal(car.park(), 'stopped')
+	})
+	it.only('can drive', () => { // it.only means only run this test
+		assert.equal(car.drive(), 'vroom')
+	})
+})
+```
+💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/blob/master/test/test-deploy.ts
+
+Run the following command to run the test:
+
+```
+yarn hardhat test
+```
+
+Run the test by keyword:
+
+```
+yarn hardhat test --grep 'TEST KEYWORD'
+```
+
+### hardhat-gas-reporter
+
+`hardhat-gas-reporter` is a plugin that will report gas usage of each transaction every time we run test above.
+
+Install it by following:
+
+```
+yarn add hardhat-gas-reporter
+```
+
+Then, add it to "hardhat.config.js" file:
+
+```
+{
+	...,
+	gasReporter: {
+		enabled: true,
+		outputFile: 'gas-report.json',
+		noColors: true,
+		currency: 'USD',
+		coinmarketcap: MARKETCAP_API_KEY
+	}
+}
+
+```
+Get the MARKETCAP_API_KEY key from https://pro.coinmarketcap.com/
+
+### solidity-coverage
+`solidity-coverage` is a plugin that will generate a Testing coverage report of your smart contract.
+
+Import the package to the 'hardhat.config.js' file:
+
+```
+import 'solidity-coverage'
+```
+
+Get the report by following:
+
+```
+yarn hardhat coverage
+```
+
+### Typechain
+Reference: https://github.com/dethcrypto/TypeChain/tree/master/packages/hardhat

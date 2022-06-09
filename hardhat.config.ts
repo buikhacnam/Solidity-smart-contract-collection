@@ -3,6 +3,10 @@ import '@nomiclabs/hardhat-waffle'
 import 'dotenv/config'
 import '@nomiclabs/hardhat-etherscan'
 import './tasks/block-number'
+import 'hardhat-gas-reporter'
+import 'solidity-coverage'
+import '@typechain/hardhat'
+
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
 task('accounts', 'Prints the list of accounts', async (args, hre) => {
@@ -19,6 +23,7 @@ task('accounts', 'Prints the list of accounts', async (args, hre) => {
 const RINKEBY_PRIVATE_KEY = process.env.METAMASK_RINKEBY_PRIVATE_KEY!
 const RINKEBY_RPC_URL = process.env.ALCHEMY_RINKEBY_RPC_URL!
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY!
+const MARKETCAP_API_KEY = process.env.MARKETCAP_API_KEY!
 console.log(
 	'RINKEBY_PRIVATE_KEY: ',
 	RINKEBY_PRIVATE_KEY,
@@ -42,5 +47,12 @@ export default {
 	solidity: '0.8.8',
 	etherscan: {
 		apiKey: ETHERSCAN_API_KEY,
+	},
+	gasReporter: {
+		enabled: true,
+		outputFile: 'gas-report.json',
+		noColors: true,
+		currency: 'USD',
+		coinmarketcap: MARKETCAP_API_KEY
 	}
 }
