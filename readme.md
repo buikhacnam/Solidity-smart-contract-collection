@@ -10,11 +10,18 @@ Welcome to the repository where I store Solidity, Smart Contract and Blockchain 
 
 ### [Chainlink](https://chain.link/)
 
+### [Hardhat](https://hardhat.org/)
+
 ### [Ethereum Unit Converter](https://eth-converter.com/)
 
 ### [Remix](https://remix.ethereum.org/)
 
 ### [Solidity Documentation](https://docs.soliditylang.org/en/v0.8.6/index.html)
+
+
+# Intro to Solidity and Smart Contract
+
+Github repository: https://github.com/buikhacnam/your-first-smart-contract
 
 # Fund Me Contract
 
@@ -386,4 +393,11 @@ yarn hardhat coverage
 ```
 
 ### Typechain
+
 Reference: https://github.com/dethcrypto/TypeChain/tree/master/packages/hardhat
+
+This library will generate types for smart contracts
+
+# Hardhat Typescript FundMe
+
+Github Repository: https://github.com/buikhacnam/hardhat-fundme
