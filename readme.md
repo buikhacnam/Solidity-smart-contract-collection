@@ -5,11 +5,11 @@ Welcome to the repository where I store Solidity, Smart Contract and Blockchain 
 
 # Hardhat TypeScript Lottery Smart Contract
 
-Github Repository: [https://github.com/buikhacnam/hardhat-lottery](https://github.com/buikhacnam/hardhat-lottery)
+## Github Repository: [https://github.com/buikhacnam/hardhat-lottery](https://github.com/buikhacnam/hardhat-lottery)
 
 # Hardhat Typescript FundMe Smart Contract
 
-Github Repository: https://github.com/buikhacnam/hardhat-fundme
+## Github Repository: https://github.com/buikhacnam/hardhat-fundme
 
 
 # Fund Me Contract
@@ -408,4 +408,4 @@ This library will generate types for smart contracts
 
 # Intro to Solidity and Smart Contract
 
-Github repository: https://github.com/buikhacnam/your-first-smart-contract
+## Github repository: https://github.com/buikhacnam/your-first-smart-contract
