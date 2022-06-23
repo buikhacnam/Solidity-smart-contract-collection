@@ -2,26 +2,15 @@
 
 Welcome to the repository where I store Solidity, Smart Contract and Blockchain knowledge and notes
 
-# References
 
-### [Patrick Collins](https://www.youtube.com/channel/UCn-3f8tw_E1jZvhuHatROwA)
+# Hardhat TypeScript Lottery Smart Contract
 
-### [Testnet Faucets](https://faucets.chain.link)
+Github Repository: [https://github.com/buikhacnam/hardhat-lottery](https://github.com/buikhacnam/hardhat-lottery)
 
-### [Chainlink](https://chain.link/)
+# Hardhat Typescript FundMe Smart Contract
 
-### [Hardhat](https://hardhat.org/)
+Github Repository: https://github.com/buikhacnam/hardhat-fundme
 
-### [Ethereum Unit Converter](https://eth-converter.com/)
-
-### [Remix](https://remix.ethereum.org/)
-
-### [Solidity Documentation](https://docs.soliditylang.org/en/v0.8.6/index.html)
-
-
-# Intro to Solidity and Smart Contract
-
-Github repository: https://github.com/buikhacnam/your-first-smart-contract
 
 # Fund Me Contract
 
@@ -398,6 +387,25 @@ Reference: https://github.com/dethcrypto/TypeChain/tree/master/packages/hardhat
 
 This library will generate types for smart contracts
 
-# Hardhat Typescript FundMe
 
-Github Repository: https://github.com/buikhacnam/hardhat-fundme
+# References
+
+### [Patrick Collins](https://www.youtube.com/channel/UCn-3f8tw_E1jZvhuHatROwA)
+
+### [Testnet Faucets](https://faucets.chain.link)
+
+### [Chainlink](https://chain.link/)
+
+### [Hardhat](https://hardhat.org/)
+
+### [Ethereum Unit Converter](https://eth-converter.com/)
+
+### [Remix](https://remix.ethereum.org/)
+
+### [Solidity Documentation](https://docs.soliditylang.org/en/v0.8.6/index.html)
+
+
+
+# Intro to Solidity and Smart Contract
+
+Github repository: https://github.com/buikhacnam/your-first-smart-contract
