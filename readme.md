@@ -5,7 +5,9 @@ Welcome to the repository where I store Solidity, Smart Contract and Blockchain 
 
 # Hardhat TypeScript Lottery Smart Contract
 
-## Github Repository: [https://github.com/buikhacnam/hardhat-lottery](https://github.com/buikhacnam/hardhat-lottery)
+## Back-end Repository: [https://github.com/buikhacnam/hardhat-lottery](https://github.com/buikhacnam/hardhat-lottery)
+
+## Front-end Repository: [https://github.com/buikhacnam/next-lottery](https://github.com/buikhacnam/next-lottery)
 
 # Hardhat Typescript FundMe Smart Contract
 
