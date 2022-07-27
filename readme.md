@@ -3,15 +3,19 @@
 Welcome to the repository where I store Solidity, Smart Contract and Blockchain knowledge and notes
 
 
+# Aave v2 Defi
+
+## 💻 Github Repository: https://github.com/buikhacnam/defi-aave-v2-hardhat
+
 # Hardhat TypeScript Lottery Smart Contract
 
-## Back-end Repository: [https://github.com/buikhacnam/hardhat-lottery](https://github.com/buikhacnam/hardhat-lottery)
+## 💻 Back-end Repository: [https://github.com/buikhacnam/hardhat-lottery](https://github.com/buikhacnam/hardhat-lottery)
 
-## Front-end Repository: [https://github.com/buikhacnam/next-lottery](https://github.com/buikhacnam/next-lottery)
+## 💻 Front-end Repository: [https://github.com/buikhacnam/next-lottery](https://github.com/buikhacnam/next-lottery)
 
 # Hardhat Typescript FundMe Smart Contract
 
-## Github Repository: https://github.com/buikhacnam/hardhat-fundme
+## 💻 Github Repository: https://github.com/buikhacnam/hardhat-fundme
 
 
 # Fund Me Contract
