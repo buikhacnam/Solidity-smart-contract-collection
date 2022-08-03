@@ -2,6 +2,9 @@
 
 Welcome to the repository where I store Solidity, Smart Contract and Blockchain knowledge and notes
 
+# NFT Playground
+
+## 💻 Github Repository: https://github.com/buikhacnam/nft-playground
 
 # Aave v2 Defi
 
