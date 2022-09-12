@@ -2,6 +2,20 @@
 
 Welcome to the repository where I store Solidity, Smart Contract and Blockchain knowledge and notes
 
+# Marketplace backend
+
+## 💻 Github Repository: https://github.com/buikhacnam/nft-marketplace-backend
+
+# Supgraph Studio
+
+## 💻 Github Repository: https://github.com/buikhacnam/Subgraph-bui-nft-marketplace
+
+
+# Marketplace frontend
+
+## 💻 Github Repository: https://github.com/buikhacnam/nft-subgraph-nextjs
+
+
 # NFT Playground
 
 ## 💻 Github Repository: https://github.com/buikhacnam/nft-playground
