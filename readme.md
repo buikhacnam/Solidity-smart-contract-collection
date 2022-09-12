@@ -10,6 +10,9 @@ Welcome to the repository where I store Solidity, Smart Contract and Blockchain 
 
 ## 💻 Github Repository: https://github.com/buikhacnam/Subgraph-bui-nft-marketplace
 
+# Premier League NFTs
+
+## 💻 Github Repository: https://github.com/buikhacnam/premier-league-NFTs
 
 # Marketplace frontend
 
