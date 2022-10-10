@@ -1,51 +1,51 @@
-# Solidity Smart Contract Collection
 
 Welcome to the repository where I store Solidity, Smart Contract and Blockchain knowledge and notes
 
 # Marketplace backend
 
-## 💻 Github Repository: https://github.com/buikhacnam/nft-marketplace-backend
+💻 Github Repository: https://github.com/buikhacnam/nft-marketplace-backend
 
 # Supgraph Studio
 
-## 💻 Github Repository: https://github.com/buikhacnam/Subgraph-bui-nft-marketplace
+💻 Github Repository: https://github.com/buikhacnam/Subgraph-bui-nft-marketplace
 
 # Premier League NFTs
 
-## 💻 Github Repository: https://github.com/buikhacnam/premier-league-NFTs
+💻 Github Repository: https://github.com/buikhacnam/premier-league-NFTs
 
 # Marketplace frontend
 
-## 💻 Github Repository: https://github.com/buikhacnam/nft-subgraph-nextjs
+💻 Github Repository: https://github.com/buikhacnam/nft-subgraph-nextjs
 
 
 # NFT Playground
 
-## 💻 Github Repository: https://github.com/buikhacnam/nft-playground
+💻 Github Repository: https://github.com/buikhacnam/nft-playground
 
 # Aave v2 Defi
 
-## 💻 Github Repository: https://github.com/buikhacnam/defi-aave-v2-hardhat
+💻 Github Repository: https://github.com/buikhacnam/defi-aave-v2-hardhat
 
 # Hardhat TypeScript Lottery Smart Contract
 
-## 💻 Back-end Repository: [https://github.com/buikhacnam/hardhat-lottery](https://github.com/buikhacnam/hardhat-lottery)
+💻 Back-end Repository: [https://github.com/buikhacnam/hardhat-lottery](https://github.com/buikhacnam/hardhat-lottery)
 
-## 💻 Front-end Repository: [https://github.com/buikhacnam/next-lottery](https://github.com/buikhacnam/next-lottery)
+
+💻 Front-end Repository: [https://github.com/buikhacnam/next-lottery](https://github.com/buikhacnam/next-lottery)
 
 # Hardhat Typescript FundMe Smart Contract
 
-## 💻 Github Repository: https://github.com/buikhacnam/hardhat-fundme
+💻 Github Repository: https://github.com/buikhacnam/hardhat-fundme
 
 
 # Fund Me Contract
 
-## 💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/tree/master/fundMe
+💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/tree/master/fundMe
 
 
 # Storage Contract
 
-## 💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/tree/master/simpleStorage
+💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/tree/master/simpleStorage
 
 ### Compile contract using solc
 
@@ -403,4 +403,4 @@ This library will generate types for smart contracts
 
 # Intro to Solidity and Smart Contract
 
-## Github repository: https://github.com/buikhacnam/your-first-smart-contract
+💻 Github repository: https://github.com/buikhacnam/your-first-smart-contract
