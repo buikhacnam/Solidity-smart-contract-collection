@@ -42,22 +42,10 @@ Welcome to the repository where I store Solidity, Smart Contract and Blockchain 
 
 ## 💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/tree/master/fundMe
 
-## Topic covers:
-
--   Chainlink
--   Import contract from chainlink
--   Convert ETH to USD
--   Ethereum to Wei and so on
--   Libraries and Solidity
--   Sending ETH from a Contract
--   Special functions receive() and fallback()
--   Custom error introduction
 
 # Storage Contract
 
 ## 💻 Code: https://github.com/buikhacnam/Solidity-smart-contract-collection/tree/master/simpleStorage
-
-## Topic covers:
 
 ### Compile contract using solc
 
@@ -412,25 +400,6 @@ yarn hardhat coverage
 Reference: https://github.com/dethcrypto/TypeChain/tree/master/packages/hardhat
 
 This library will generate types for smart contracts
-
-
-# References
-
-### [Patrick Collins](https://www.youtube.com/channel/UCn-3f8tw_E1jZvhuHatROwA)
-
-### [Testnet Faucets](https://faucets.chain.link)
-
-### [Chainlink](https://chain.link/)
-
-### [Hardhat](https://hardhat.org/)
-
-### [Ethereum Unit Converter](https://eth-converter.com/)
-
-### [Remix](https://remix.ethereum.org/)
-
-### [Solidity Documentation](https://docs.soliditylang.org/en/v0.8.6/index.html)
-
-
 
 # Intro to Solidity and Smart Contract
 
